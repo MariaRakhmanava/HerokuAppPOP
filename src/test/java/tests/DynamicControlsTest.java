@@ -12,11 +12,11 @@ public class DynamicControlsTest extends BaseTest implements iTestConstants {
         dynamicControlsPage.openPage(DYNAMIC_CONTROLS_PAGE_URL);
         int numberOfCheckboxes = dynamicControlsPage.getNumberOfCheckboxesOnThePage();
         dynamicControlsPage.clickCheckboxButton();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKBOX_MESSAGE));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dynamicControlsPage.getCheckboxMessageLocator()));
         numberOfCheckboxes = dynamicControlsPage.getNumberOfCheckboxesOnThePage();
         Assert.assertEquals(numberOfCheckboxes, 0);
         dynamicControlsPage.clickCheckboxButton();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKBOX_MESSAGE));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dynamicControlsPage.getCheckboxMessageLocator()));
         numberOfCheckboxes = dynamicControlsPage.getNumberOfCheckboxesOnThePage();
         Assert.assertEquals(numberOfCheckboxes, 1);
     }
@@ -24,10 +24,10 @@ public class DynamicControlsTest extends BaseTest implements iTestConstants {
     @Test
     public void dynamicControlInputTest() {
         dynamicControlsPage.openPage(DYNAMIC_CONTROLS_PAGE_URL);
-        Assert.assertFalse(dynamicControlsPage.checkInputCondition());
+        Assert.assertFalse(dynamicControlsPage.isInputFieldEnabled());
         dynamicControlsPage.clickInputButton();
         WebElement inputField = dynamicControlsPage.findInputField();
         wait.until(ExpectedConditions.elementToBeClickable(inputField));
-        Assert.assertTrue(dynamicControlsPage.checkInputCondition());
+        Assert.assertTrue(dynamicControlsPage.isInputFieldEnabled());
     }
 }

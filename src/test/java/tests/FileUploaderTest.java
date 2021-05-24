@@ -10,7 +10,7 @@ public class FileUploaderTest extends BaseTest implements iTestConstants {
         fileUploaderPage.openPage(FILE_UPLOADER_PAGE_URL);
         fileUploaderPage.uploadFile(FILE_PATH);
         fileUploaderPage.clickUploadButton();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(FILE_UPLOADED_TEXT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(fileUploaderPage.getAfterLoadingMessageLocator()));
         Assert.assertEquals(fileUploaderPage.getUploadedFileName(), FILE_NAME);
     }
 }

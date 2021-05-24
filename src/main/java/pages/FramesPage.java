@@ -14,10 +14,12 @@ public class FramesPage extends BasePage{
 
     public void openPage(String url) {
         driver.get(url);
+        this.waitForElementLocated(I_FRAME_LINK, 10);
         driver.findElement(I_FRAME_LINK).click();
     }
 
     public String getIFrameText() {
+        this.waitForElementLocated(I_FRAME_TEXT, 10);
         return driver.findElement(I_FRAME_TEXT).getText();
     }
 }

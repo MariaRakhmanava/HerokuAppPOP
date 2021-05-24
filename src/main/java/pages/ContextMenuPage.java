@@ -4,6 +4,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ContextMenuPage extends BasePage {
     Actions actions = new Actions(driver);
@@ -19,14 +20,17 @@ public class ContextMenuPage extends BasePage {
     }
 
     public void rightClickOnTheBox() {
+        this.waitForElementLocated(BOX_FIELD, 10);
         actions.contextClick(driver.findElement(BOX_FIELD)).perform();
     }
 
     public String getAlertText() {
-      return driver.switchTo().alert().getText();
+        wait.until(ExpectedConditions.alertIsPresent());
+        return driver.switchTo().alert().getText();
     }
 
     public void acceptAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
     }
 }

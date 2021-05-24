@@ -28,6 +28,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, 10);
         contextMenuPage = new ContextMenuPage(driver);
         dynamicControlsPage = new DynamicControlsPage(driver);
         fileUploaderPage = new FileUploaderPage(driver);
