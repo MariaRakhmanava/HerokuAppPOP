@@ -14,7 +14,7 @@ abstract class BasePage {
     }
 
     public void waitForElementLocated(By locator, int timeout) {
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
