@@ -10,10 +10,9 @@ public class ContextMenuTest extends BaseTest implements iTestConstants {
     @Test
     public void alertTextValidationTest() {
         contextMenuPage.openPage(CONTEXT_MENU_PAGE_URL);
-        contextMenuPage.rightClickInTheBox();
+        contextMenuPage.rightClickOnTheBox();
         wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert = driver.switchTo().alert();
-        Assert.assertEquals(alert.getText(), ALERT_TEXT);
-        alert.accept();
+        Assert.assertEquals(contextMenuPage.getAlertText(), ALERT_TEXT);
+        contextMenuPage.acceptAlert();
     }
 }

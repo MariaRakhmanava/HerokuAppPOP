@@ -16,10 +16,9 @@ import pages.FramesPage;
 
 public class BaseTest {
     WebDriver driver;
-    ContextMenuPage contextMenuPage;
     WebDriverWait wait;
+    ContextMenuPage contextMenuPage;
     DynamicControlsPage dynamicControlsPage;
-    Alert alert;
     FileUploaderPage fileUploaderPage;
     FramesPage framesPage;
 
@@ -30,7 +29,6 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         contextMenuPage = new ContextMenuPage(driver);
-        wait = new WebDriverWait(driver, 10);
         dynamicControlsPage = new DynamicControlsPage(driver);
         fileUploaderPage = new FileUploaderPage(driver);
         framesPage = new FramesPage(driver);

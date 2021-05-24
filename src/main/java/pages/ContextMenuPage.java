@@ -18,7 +18,15 @@ public class ContextMenuPage extends BasePage {
         driver.get(url);
     }
 
-    public void rightClickInTheBox() {
+    public void rightClickOnTheBox() {
         actions.contextClick(driver.findElement(BOX_FIELD)).perform();
+    }
+
+    public String getAlertText() {
+      return driver.switchTo().alert().getText();
+    }
+
+    public void acceptAlert() {
+        driver.switchTo().alert().accept();
     }
 }
